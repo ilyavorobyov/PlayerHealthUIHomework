@@ -9,14 +9,14 @@ public class PlayerHealth : MonoBehaviour
     private float _healing = 10;
     private float _minHealth = 0;
 
-    public float MaxHealth { get; private set; } = 110;
-    public float Health { get; private set; } = 80;
-
     public event UnityAction Health—hange
     {
         add => _health—hange.AddListener(value);
         remove => _health—hange.RemoveListener(value);
     }
+
+    public float MaxHealth { get; private set; } = 110;
+    public float Health { get; private set; } = 80;
 
     public void TakeDamage()
     {
