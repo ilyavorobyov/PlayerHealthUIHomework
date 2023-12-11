@@ -1779,8 +1779,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1774357550}
   - component: {fileID: 1774357549}
+  - component: {fileID: 1774357551}
+  - component: {fileID: 1774357553}
   m_Layer: 0
-  m_Name: View
+  m_Name: PlayerHealthView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1799,9 +1801,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _smoothSlider: {fileID: 64571914}
-  _slider: {fileID: 1500134803}
   _playerHealth: {fileID: 1697207840}
-  _healthText: {fileID: 1910286164}
   _handleSpeed: 30
 --- !u!4 &1774357550
 Transform:
@@ -1818,6 +1818,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1774357551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774357548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f9f720140e470545a36db2af200d865, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healthText: {fileID: 1910286164}
+  _playerHealth: {fileID: 1697207840}
+--- !u!114 &1774357553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774357548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce21097667cc2274bb121633a9cdf4d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerHealth: {fileID: 1697207840}
+  _slider: {fileID: 1500134803}
 --- !u!1 &1910286163
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,16 +3,16 @@ using UnityEngine.Events;
 
 public class PlayerHealth : MonoBehaviour
 {
-    private UnityEvent _health—hange = new UnityEvent();
+    private UnityEvent _healthChange = new UnityEvent();
 
     private float _damage = 10;
     private float _healing = 10;
     private float _minHealth = 0;
 
-    public event UnityAction Health—hange
+    public event UnityAction HealthChange
     {
-        add => _health—hange.AddListener(value);
-        remove => _health—hange.RemoveListener(value);
+        add => _healthChange.AddListener(value);
+        remove => _healthChange.RemoveListener(value);
     }
 
     public float MaxHealth { get; private set; } = 110;
@@ -23,7 +23,7 @@ public class PlayerHealth : MonoBehaviour
         if (Health - _damage >= _minHealth)
         {
             Health -= _damage;
-            _health—hange.Invoke();
+            _healthChange.Invoke();
         }
     }
 
@@ -32,7 +32,7 @@ public class PlayerHealth : MonoBehaviour
         if (Health + _healing <= MaxHealth)
         {
             Health += _healing;
-            _health—hange.Invoke();
+            _healthChange.Invoke();
         }
     }
 }
