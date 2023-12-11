@@ -36,17 +36,18 @@ public class PlayerHealthSmoothSliderView : MonoBehaviour
         if(_changeValue != null)
             StopCoroutine( _changeValue );
 
-        _changeValue = StartCoroutine(ÑhangeValue());
+        _changeValue = StartCoroutine(ChangeValue());
     }
 
-    private IEnumerator ÑhangeValue()
+    private IEnumerator ChangeValue()
     {
         var waitForFixedUpdate = new WaitForFixedUpdate();
         _newValue = _playerHealth.Health;
 
         while (_isChangeSliderValue)
         {
-            _smoothSlider.value = Mathf.MoveTowards(_smoothSlider.value, _newValue, _handleSpeed * Time.deltaTime);
+            _smoothSlider.value = Mathf.MoveTowards(_smoothSlider.value, _newValue, 
+                _handleSpeed * Time.deltaTime);
 
             if (_smoothSlider.value == _newValue)
             {
