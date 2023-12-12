@@ -7,16 +7,12 @@ public class PlayerHealthSmoothSliderView : MonoBehaviour
     [SerializeField] private PlayerHealth _playerHealth;
     [SerializeField] private float _handleSpeed;
 
-    private float _maxSliderValue;
-    private float _newValue;
-    private bool _isChangeSliderValue = false;
     private Coroutine _changeValue;
 
     private void Start()
     {
         _smoothSlider.maxValue = _playerHealth.MaxHealth;
-        _maxSliderValue = _playerHealth.Health;
-        _smoothSlider.value = _maxSliderValue;
+        _smoothSlider.value = _playerHealth.Health;
     }
 
     private void OnEnable()
@@ -31,8 +27,6 @@ public class PlayerHealthSmoothSliderView : MonoBehaviour
 
     private void OnChangeSliderValue()
     {
-        _isChangeSliderValue = true;
-
         if(_changeValue != null)
             StopCoroutine( _changeValue );
 
@@ -42,16 +36,16 @@ public class PlayerHealthSmoothSliderView : MonoBehaviour
     private IEnumerator ChangeValue()
     {
         var waitForFixedUpdate = new WaitForFixedUpdate();
-        _newValue = _playerHealth.Health;
+        bool isChangeSliderValue = true;
 
-        while (_isChangeSliderValue)
+        while (isChangeSliderValue)
         {
-            _smoothSlider.value = Mathf.MoveTowards(_smoothSlider.value, _newValue, 
+            _smoothSlider.value = Mathf.MoveTowards(_smoothSlider.value, _playerHealth.Health, 
                 _handleSpeed * Time.deltaTime);
 
-            if (_smoothSlider.value == _newValue)
+            if (_smoothSlider.value == _playerHealth.Health)
             {
-                _isChangeSliderValue = false;
+                isChangeSliderValue = false;
                 StopCoroutine(_changeValue);
             }
 

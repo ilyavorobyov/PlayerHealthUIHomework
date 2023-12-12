@@ -10,8 +10,7 @@ public class PlayerHealthTextView : MonoBehaviour
 
     private void Start()
     {
-        _healthText.text = $"{_playerHealth.Health.ToString()} {HealthTextSeparator}" +
-         $" {_playerHealth.MaxHealth}";
+        ShowHealthInfo();
     }
 
     private void OnEnable()
@@ -25,6 +24,11 @@ public class PlayerHealthTextView : MonoBehaviour
     }
 
     private void OnChangeHealthText()
+    {
+        ShowHealthInfo();
+    }
+
+    private void ShowHealthInfo()
     {
         _healthText.text = $"{_playerHealth.Health.ToString()} {HealthTextSeparator}" +
             $" {_playerHealth.MaxHealth}";
